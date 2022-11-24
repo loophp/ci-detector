@@ -1,0 +1,35 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+    push:
+        paths:
+            - "**.nix"
+            - ".github/workflows/tests.yml"
+        branches:
+            - main
+    pull_request:
+        paths:
+            - "**.nix"
+            - ".github/workflows/tests.yml"
+
+name: "Tests"
+
+jobs:
+    tests:
+        name: "Unit Tests"
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set git to use LF
+              run: |
+                  git config --global core.autocrlf false
+                  git config --global core.eol lf
+
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Install the Nix package manager
+              uses: cachix/install-nix-action@v18
+
+            - name: Run eval
+              run: |
+                  nix eval .#lib.ci --impure
