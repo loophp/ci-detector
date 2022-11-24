@@ -36,6 +36,7 @@ Exposed API:
 - `lib.ci`: When running in a CI, returns a `set` containing the current CI
   environment information, throws an error otherwise.
 - `lib.inCI`: When running in a CI, returns `true`, `false` otherwise.
+- `lib.notInCI`: When running in a CI, returns `false`, `true` otherwise.
 - `lib.find`: Unary function where the first argument is a default value. When
   in a CI, the CI information is returned, otherwise the default value is
   returned.
