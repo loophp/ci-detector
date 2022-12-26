@@ -9,5 +9,5 @@ in
   inherit ci inCI;
 
   notInCI = if (true == inCI) then false else true;
-  find = default: if false == (nixpkgs.lib.lists.findSingle (x: x.isDetected) false false CIs) then (default) else (ci);
+  find = default: if (true == inCI) then ci else default;
 }
