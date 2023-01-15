@@ -1,8 +1,8 @@
 {nixpkgs}: let
   ci = nixpkgs.lib.lists.findSingle (x: x.isDetected) (throw "Not in CI") (throw "Not in CI") (map (x: import x) (import ./CI {inherit (nixpkgs) lib;}).imports);
-in {
+in rec {
   inCI =
-    if tryEval ci
+    if ((builtins.tryEval ci) == { success = false; value = false; })
     then false
     else true;
   notInCI =
