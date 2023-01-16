@@ -73,7 +73,8 @@ example:
 
 [github actions link]: https://github.com/loophp/ci-detector/actions
 [github sponsors link]: https://github.com/sponsors/drupol
-[github workflow status]: https://img.shields.io/github/actions/workflow/status/loophp/ci-detector/tests.yml?branch=main&style=flat-square
+[github workflow status]:
+  https://img.shields.io/github/actions/workflow/status/loophp/ci-detector/tests.yml?branch=main&style=flat-square
 [donate github]:
   https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
 [ondram/ci-detector]: https://github.com/OndraM/ci-detector
