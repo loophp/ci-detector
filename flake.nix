@@ -2,10 +2,10 @@
   description = "To detect whether we are in a CI or not";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
   };
 
-  outputs = { self, nixpkgs }: {
-    lib = import ./src/lib.nix { inherit nixpkgs; };
+  outputs = { self, nixpkgs-lib }: {
+    lib = import ./src/lib.nix { inherit (nixpkgs-lib) lib; };
   };
 }

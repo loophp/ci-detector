@@ -1,8 +1,8 @@
-{ nixpkgs
+{ lib
 }:
 
 let
-  ci = nixpkgs.lib.lists.findSingle (x: x.isDetected) (throw "Not in CI") (throw "Not in CI") (map (x: import x) (import ./CI { inherit (nixpkgs) lib; }).imports);
+  ci = lib.lists.findSingle (x: x.isDetected) (throw "Not in CI") (throw "Not in CI") (map (x: import x) (import ./CI { inherit lib; }).imports);
   inCI = (builtins.tryEval ci).success;
 in
 {
