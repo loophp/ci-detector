@@ -1,4 +1,4 @@
 {
-  isDetected = builtins.getEnv "APPVEYOR" == true;
+  isDetected = builtins.getEnv "APPVEYOR" == "true";
   name = "AppVeyor";
 }
