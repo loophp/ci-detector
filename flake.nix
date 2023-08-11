@@ -5,10 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: {
-    lib = import ./src/lib.nix {inherit nixpkgs;};
+  outputs = { self, nixpkgs }: {
+    lib = import ./src/lib.nix { inherit nixpkgs; };
   };
 }
